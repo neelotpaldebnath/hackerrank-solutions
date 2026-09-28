@@ -7,6 +7,12 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-09-28, 02:01 p.m.
+# Technique   single-pass-summation-formula
+# Time        O(N)
+# Space       O(1)
+# Insight     The Pearson correlation coefficient is computed using the algebraic expansion of the covariance and standard deviations, allowing for a single-pass accumulation of necessary sums.
+# Interview   Before: "How do I calculate correlation for 500,000 rows without storing them?" After: "By using the expanded formula for Pearson correlation, we maintain running sums of variables, squares, and products in O(N) time and O(1) space, avoiding memory overhead."
+# Pitfalls    (1) Failure to handle the division by zero case when the variance of a subject is zero.  (2) Rounding errors when using floating-point arithmetic for large sums of squares.  (3) Incorrectly assuming the input format uses spaces instead of the specified tab-separated values.
 # ──────────────────────────────────────────────────
 
 import sys
