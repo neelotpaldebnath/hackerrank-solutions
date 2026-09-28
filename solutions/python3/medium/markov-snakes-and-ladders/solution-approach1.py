@@ -7,12 +7,6 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-09-28, 02:05 p.m.
-# Technique   markov-chain-state-transition-simulation
-# Time        O(T * R * S * D)
-# Space       O(S)
-# Insight     The algorithm computes the expected number of rolls by tracking the probability distribution of the player's position across the board over 1000 iterations.
-# Interview   Before: "How would you simulate this game?" After: "I would use a Markov chain approach to track the probability of being on each square, resulting in O(T * R * S * D) time complexity, where R is 1000 rolls, S is 100 squares, and D is 6 die faces."
-# Pitfalls    (1) Failing to handle the rule where rolls resulting in a square greater than 100 are wasted and the player remains at the original square.  (2) Incorrectly updating the board state by failing to apply ladder or snake transitions immediately upon landing on a square.  (3) Ignoring the requirement to normalize the expected value by the total probability of finishing within the 1000-roll limit.
 # ──────────────────────────────────────────────────
 
 import sys
