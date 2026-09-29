@@ -7,6 +7,12 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-09-29, 10:49 p.m.
+# Technique   spearman-rank-correlation-coefficient
+# Time        O(T * N log N)
+# Space       O(N)
+# Insight     The implementation identifies the aptitude test with the highest Spearman rank correlation coefficient relative to the student GPAs by calculating mid-ranks for tied values.
+# Interview   Before: "I would calculate the Pearson correlation between the raw scores." After: "I used the Spearman rank correlation coefficient to measure monotonic relationships, which is O(N log N) per test case due to sorting, ensuring robustness against non-linear score distributions."
+# Pitfalls    (1) Failing to handle tied ranks correctly by using the average rank method, which is required for accurate Spearman correlation.  (2) Assuming a linear relationship between aptitude scores and GPA instead of using rank-based correlation.  (3) Dividing by zero in the correlation formula when a test has identical scores for all students, which the code handles by returning 0.0.
 # ──────────────────────────────────────────────────
 
 import sys
