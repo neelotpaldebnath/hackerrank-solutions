@@ -7,6 +7,10 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-09-29, 10:48 p.m.
+# Technique   tfidf-sgd-classifier-with-hardcoded-overrides
+# Time        O(N*L + T*L)
+# Space       O(N*L + V)
+# Pitfalls    (1) The hardcoded dictionary lookup may cause incorrect classifications if the input string contains the pattern as a substring rather than an exact match.  (2) The min_df=4 parameter in TfidfVectorizer may discard rare but highly predictive words if the training dataset is too small.  (3) The model relies on the existence of trainingdata.txt at runtime, which will cause a FileNotFoundError if the environment does not provide the file.
 # ──────────────────────────────────────────────────
 
 import sys
