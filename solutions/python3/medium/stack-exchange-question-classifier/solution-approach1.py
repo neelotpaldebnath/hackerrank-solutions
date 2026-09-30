@@ -7,6 +7,12 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-09-30, 11:26 p.m.
+# Technique   tfidf-ridge-classifier-pipeline
+# Time        O(N * L + M * L)
+# Space       O(N * L + V)
+# Insight     The model concatenates question titles and excerpts into a single feature string, then uses a TF-IDF vectorizer with bigrams and a Ridge classifier to map text to one of ten topics.
+# Interview   Before: "How would you classify text into ten categories?" After: "I would use a TF-IDF vectorizer with n-grams to capture context, followed by a Ridge classifier for efficient multi-class prediction, achieving O(N*L) training time where N is the number of documents and L is the average document length."
+# Pitfalls    (1) Failing to handle UTF-8 encoding in the input JSON objects can lead to decoding errors.  (2) Ignoring the requirement to read the training file from the local directory causes runtime failures.  (3) Using an insufficient number of features or incorrect n-gram ranges may result in poor classification accuracy.
 # ──────────────────────────────────────────────────
 
 import json
