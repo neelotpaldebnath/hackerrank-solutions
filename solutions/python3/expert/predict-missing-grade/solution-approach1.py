@@ -7,6 +7,12 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-10-02, 10:34 p.m.
+# Technique   ridge-regression-feature-engineering
+# Time        O(N_train * M^2 + N_test * M)
+# Space       O(N_train * M)
+# Insight     The model maps sparse subject-grade inputs into a dense feature space using statistical aggregates and indicator flags to predict the missing Mathematics grade via ridge regression.
+# Interview   Before: "How would you predict a missing categorical grade?" After: "I would use ridge regression on engineered features like subject means and indicator flags. This approach runs in O(N_train * M^2) time, where M is the number of subjects, effectively handling the 1-8 grade range with a tolerance of one point."
+# Pitfalls    (1) Assuming all subjects are present in every record, which ignores the conditional logic for missing fields in the extract_features function.  (2) Failing to handle the input format correctly, specifically the initial integer N followed by N JSON lines.  (3) Neglecting the grade range constraint [1, 8] by failing to clip the regression output.
 # ──────────────────────────────────────────────────
 
 import json
