@@ -7,6 +7,12 @@
 // Language    cpp14
 // Status      Accepted
 // Submitted   2026-10-02, 10:33 p.m.
+// Technique   brute-force-permutation-scoring
+// Time        O(P * Q * A + 5!)
+// Space       O(P + Q + A)
+// Insight     The implementation evaluates all possible question-answer pairings by calculating a heuristic score based on word overlap, proximity, and keyword matching, then selects the permutation that maximizes the total score.
+// Interview   Before: "How do you map jumbled answers to questions?" After: "I calculate a heuristic score for every possible question-answer pair using keyword overlap and proximity, then use next_permutation to find the optimal assignment in O(5!) time, which is constant given the fixed constraint of five questions."
+// Pitfalls    (1) The heuristic scoring relies on stop-word filtering and stemming, which may fail if the question and answer share no common non-stop words.  (2) The proximity score uses a fixed 250-character window, which might exclude relevant context if the answer is located far from the question's keywords.  (3) The implementation assumes exactly five answers are provided; if the input format deviates, the code returns early without outputting any results.
 // ──────────────────────────────────────────────────
 
 #include <bits/stdc++.h>
