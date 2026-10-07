@@ -7,6 +7,12 @@
 // Language    cpp14
 // Status      Accepted
 // Submitted   2026-10-07, 10:08 p.m.
+// Technique   linear-scan-divisor-digit-sum
+// Time        O(n log n)
+// Space       O(1)
+// Insight     The algorithm iterates through all integers up to n to identify divisors, tracking the one that maximizes the digit sum while using the smaller value as a tie-breaker.
+// Interview   Before: "I could iterate through all numbers up to n and check if they divide n." After: "That works in O(n log n) time, where the log factor comes from the digit sum calculation. Since we need the best divisor based on digit sum and value, this linear scan is sufficient for the given constraints."
+// Pitfalls    (1) Failing to handle the tie-breaking rule where the smaller number is preferred when digit sums are equal.  (2) Using an inefficient digit sum calculation that could impact performance for very large inputs.
 // ──────────────────────────────────────────────────
 
 #include <bits/stdc++.h>
