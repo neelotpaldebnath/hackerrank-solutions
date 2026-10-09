@@ -7,6 +7,12 @@
 // Language    cpp14
 // Status      Accepted
 // Submitted   2026-10-09, 10:19 p.m.
+// Technique   combinatorics-precomputed-factorials
+// Time        O(MAXN + T)
+// Space       O(MAXN)
+// Insight     The number of unique permutations of N zeros and M ones starting with a one is equivalent to choosing the positions of the N zeros in the remaining N+M-1 slots.
+// Interview   Before: "How would you count permutations with constraints?" After: "Fixing the first position as one leaves N zeros and M-1 ones to arrange in N+M-1 spots, calculated as (N+M-1) choose N in O(1) time after O(MAXN) precomputation."
+// Pitfalls    (1) Failing to recognize that fixing the first digit reduces the problem to choosing N positions for zeros out of N+M-1 total remaining positions.  (2) Incorrectly applying the formula for permutations of a multiset without accounting for the fixed leading digit.  (3) Using modular inverse incorrectly when calculating combinations for large N and M values.
 // ──────────────────────────────────────────────────
 
 
